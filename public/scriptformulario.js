@@ -21,7 +21,7 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
 
   try {
       // Subir la imagen a ImgBB
-      const imgbbResponse = await fetch('https://api.imgbb.com/1/upload?key=9ad2a8dc2c1923e1ec594fe14155d409', {
+      const imgbbResponse = await fetch('https://api.imgbb.com/1/upload?key=b37eaec55756bc0e967e28bc37443c6d', {
           method: 'POST',
           body: formData,
       });
@@ -41,7 +41,7 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {
           imagen: imageUrl,
       };
 
-      const saveResponse = await fetch('/bebidas', {
+      const saveResponse = await fetch('/castillo_surl', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

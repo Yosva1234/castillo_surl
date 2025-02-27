@@ -24,7 +24,7 @@ function mostrarPlatos(bebidas) {
 
 // Función para obtener las bebidas desde el servidor
 function obtenerBebidas() {
-  fetch('/bebidas') // Hace una solicitud GET a la ruta /bebidas
+  fetch('/castillo_surl') // Hace una solicitud GET a la ruta /bebidas
     .then(response => {
       if (!response.ok) {
         throw new Error('Error al obtener los datos');
@@ -37,7 +37,7 @@ function obtenerBebidas() {
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Hubo un error al cargar los datos de las bebidas');
+      alert('Hubo un error al cargar los datos de los productos');
     });
 }
 

@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 });
 
 // Ruta para obtener todas las bebidas
-app.get('/bebidas', (req, res) => {
+app.get('/castillo_surl', (req, res) => {
   const query = 'SELECT * FROM bebidas'; // Consulta para obtener todas las bebidas
 
   // Usar el pool para ejecutar la consulta
@@ -45,7 +45,7 @@ app.get('/bebidas', (req, res) => {
 });
 
 // Ruta para agregar una nueva bebida
-app.post('/bebidas', (req, res) => {
+app.post('/castillo_surl', (req, res) => {
   const { nombre, precio, info, imagen } = req.body; // Obtener los datos del cuerpo de la solicitud
 
   // Validar que todos los campos estén presentes
@@ -53,7 +53,7 @@ app.post('/bebidas', (req, res) => {
     return res.status(400).json({ error: 'Todos los campos son obligatorios.' });
   }
 
-  const query = 'INSERT INTO bebidas (nombre, precio, info, imagen) VALUES (?, ?, ?, ?)'; // Consulta para insertar una nueva bebida
+  const query = 'INSERT INTO bebidas (nombre, precio, descripcion, imagen) VALUES (?, ?, ?, ?)'; // Consulta para insertar una nueva bebida
 
   // Usar el pool para ejecutar la consulta
   pool.query(query, [nombre, precio, info, imagen], (err, results) => {
@@ -68,10 +68,10 @@ app.post('/bebidas', (req, res) => {
 });
 
 // Ruta para eliminar una bebida por su ID
-app.delete('/bebidas/:id', (req, res) => {
+app.delete('/castillo_surl/:id', (req, res) => {
   const { id } = req.params; // Obtener el ID de la bebida desde los parámetros de la URL
 
-  const query = 'DELETE FROM bebidas WHERE id = ?'; // Consulta para eliminar la bebida
+  const query = 'DELETE FROM castillo_surl WHERE id = ?'; // Consulta para eliminar la bebida
 
   // Usar el pool para ejecutar la consulta
   pool.query(query, [id], (err, results) => {
@@ -83,11 +83,11 @@ app.delete('/bebidas/:id', (req, res) => {
 
     if (results.affectedRows === 0) {
       // Si no se eliminó ninguna fila, la bebida no existe
-      res.status(404).json({ error: 'Bebida no encontrada' });
+      res.status(404).json({ error: 'producto no encontrada' });
       return;
     }
 
-    res.json({ message: 'Bebida eliminada correctamente' }); // Respuesta exitosa
+    res.json({ message: 'producto eliminada correctamente' }); // Respuesta exitosa
   });
 });
 
