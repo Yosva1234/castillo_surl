@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 // Ruta para obtener todas las bebidas
 app.get('/castillo_surl', (req, res) => {
-  const query = 'SELECT * FROM bebidas'; // Consulta para obtener todas las bebidas
+  const query = 'SELECT * FROM castillo_surl'; // Consulta para obtener todas las bebidas
 
   // Usar el pool para ejecutar la consulta
   pool.query(query, (err, results) => {
