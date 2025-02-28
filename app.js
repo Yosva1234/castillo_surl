@@ -58,12 +58,12 @@ app.post('/castillo_surl', (req, res) => {
   // Usar el pool para ejecutar la consulta
   pool.query(query, [nombre, precio, info, imagen], (err, results) => {
     if (err) {
-      console.error('Error al agregar la bebida:', err.stack);
+      console.error('Error al agregar el producto:', err.stack);
       return res.status(500).json({ error: 'Error en el servidor' });
     }
 
     // Respuesta exitosa con el ID de la nueva bebida
-    res.status(201).json({ message: 'Bebida agregada correctamente', id: results.insertId });
+    res.status(201).json({ message: 'producto agregada correctamente', id: results.insertId });
   });
 });
 
@@ -76,7 +76,7 @@ app.delete('/castillo_surl/:id', (req, res) => {
   // Usar el pool para ejecutar la consulta
   pool.query(query, [id], (err, results) => {
     if (err) {
-      console.error('Error al eliminar la bebida:', err.stack);
+      console.error('Error al eliminar el producto:', err.stack);
       res.status(500).send('Error en el servidor');
       return;
     }
